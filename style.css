@@ -1,0 +1,599 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+@keyframes aparecer { 
+   0%{
+
+   }
+   30% {
+      opacity: 0%;
+   }
+   100% {
+     width: 1px;
+     height: 1px;
+     opacity: 0%;
+    display: none;
+
+   }
+   
+}
+body {
+   background-color: #111111;
+   background-size: 100%;
+   background-repeat: no-repeat;
+   background-position: 50%;
+}
+.amostras {
+    display: flex;
+    width: 200px;
+    height: 150px;
+    
+  
+}
+.jogador {
+    width: 100px;
+    height: 50px;
+}
+
+.cartas.alt {
+    width: 250px;
+    height: 300px;
+    overflow: hidden;
+    
+}
+.cartas.um {
+    width: 250px;
+}
+.cartas {
+    position: absolute;
+    bottom: 10px;
+    width: 500px;
+    height: 300px;
+    overflow: hidden;
+    display: flex;
+    background-color: #1d1d1d;
+
+    transition: 0.5s ease-in-out;
+}
+.cartas3 {
+    position: absolute;
+    bottom: 10px;
+    width: 500px;
+    height: 300px;
+    overflow: hidden;
+    top: 0;
+    right: 300px;
+    display: flex;
+    background-color: #1d1d1d;
+
+    transition: 0.5s ease-in-out;
+}
+.carta { 
+    height: 100%;
+    width: 100px;
+    flex: 1;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: 0.5s ease;
+}
+.carta2 { 
+    height: 100%;
+    width: 100px;
+    flex: 1;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: 0.5s ease;
+}
+.naipe {
+    width:  25px;
+    height: 25px;
+}
+.navBar {
+    width: calc(100% - 2rem);
+    position: relative;
+    background-color: #d4d4d4;
+    top: 0;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding-left: 2rem;
+}
+.icone {
+    width: 150px;
+    height: 25px;
+    background: url(./assets/Group\ 4\ \(2\).png);
+    background-size: cover;
+    background-position: 100%;
+}
+.align {
+    display: flex;
+    flex-direction: column;
+}
+
+
+ .carta.alt {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: 0.5s ease;
+    border-radius: 10px;
+ }
+ .carta2.alt {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: 0.5s ease;
+    border-radius: 10px;
+ }
+ .lista {
+   display: flex;
+   flex-direction: column;
+   height: auto;
+   justify-content: space-between;
+
+ }
+ .sinal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 125px;
+    height: 200px;
+    border: 1px solid black;
+ }
+ .valorTop {
+    width: 80%;
+    font-size: 34px;
+    font-weight: 700;
+    color: #c40404;
+  
+display: flex;
+align-items: center;
+justify-content: start;
+    
+ }
+ .valorEnd {
+    font-size: 34px;
+    font-weight: 700;
+    color: #c40404;
+width: 80%;
+display: flex;
+align-items: center;
+justify-content: start;
+transform: rotate(180deg);
+
+ }
+ .sinal img {
+    width: 75px;
+    height:75px ;
+ }
+ .back {
+    opacity: 0;
+ }
+ .front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-image: url(./assets/tras\ 1\ 1\ \(1\).png);
+    /* background-size: 150%; */
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    box-shadow: 5px 10px 50px #1d1d1d;
+
+
+ }
+ .back.alt {
+   -webkit-user-select: none; /* Safari */
+   -ms-user-select: none; /* IE 10 and IE 11 */
+   user-select: none; /* Standard syntax */
+    position: absolute;
+    opacity: 100%;
+    top: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: #ffffff;
+    align-items: center;
+    justify-content: space-around;
+    transform: rotateY(180deg);
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    flex-direction: column;
+    box-shadow: 5px 10px 50px #1d1d1d;
+
+
+ }
+ .back.alt.reiPaus {
+    position: absolute;
+    opacity: 100%;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: #ffffff;
+    align-items: center;
+    justify-content: space-around;
+    transform: rotateY(180deg);
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    flex-direction: column;
+    box-shadow: 5px 10px 50px #1d1d1d;
+    background-image: url(./assets/reiPau.png);
+    background-repeat: no-repeat;
+
+
+
+ }
+
+ .total {
+   font-size: 100px;
+ }
+ #result {
+   color: #fff;
+   font-weight: 600;
+   font-size: 35px;
+ font-weight: 400;
+ font-style: normal;
+ width: 200px;
+ height: 200px;
+ border-radius: 10px;
+ background-color: #1d1d1d85;
+ backdrop-filter: blur(10px);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ position: absolute;
+ right: 25px;
+ top: 292px;
+ }
+ .textinho {
+   position: absolute;
+   color: #d4d4d4;
+   font-size: 18px;
+   right: 140px;
+   top: 260px;
+
+ }
+ .textinho2 {
+   position: absolute;
+   right: 170px;
+   top: 15px;
+   font-size: 18px;
+   color: #d4d4d4;
+  
+
+ }
+ #result2 {
+   color: #fff;
+   font-weight: 600;
+   font-size: 35px;
+   font-family: "Gloock", serif;
+ font-weight: 400;
+ font-style: normal;
+ width: 200px;
+ height: 200px;
+ border-radius: 10px;
+ background-color: #1d1d1d85;
+ backdrop-filter: blur(10px);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ position: absolute;
+ right: 25px;
+ top: 50px;
+  
+  
+ }
+ 
+ .alinha {
+    width: 100vw;
+    height: auto;
+    display: flex;
+    justify-content: start;
+ }
+ .btn {
+   cursor: pointer;
+    width: 200px;
+    height: 80px;
+    border-radius: 10px;
+    background-color: #1d1d1d00;
+    color: #fff;
+    font-weight: 600;
+    font-size: 18px;
+    border: 2px solid #04c44e;
+    border: none;
+    transition: 0.8s;
+
+ }
+ #msg {
+   font-weight: 600;
+   font-family: "Bebas Neue", serif;
+ font-weight: 400;
+ font-style: normal;
+ color: #d4d4d4;
+   position: absolute;
+   left: 0;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 100px;
+   background-color: #0000009f;
+   z-index: 1000;
+   animation: aparecer 10s;
+   animation-fill-mode: forwards;
+   animation-iteration-count: inherit;
+ }
+ .btn:nth-child(1):hover {
+
+ }
+ .btn:nth-child(2):hover {
+
+ }
+ .btn:nth-child(3):hover {
+    background-color: #5318dd;
+
+ }
+ .btn:nth-child(1) {
+   background-color:  #c40404;
+
+ }
+ .btn:nth-child(2) {
+    border: 2px solid #ee730e;
+
+ }
+ .btn:nth-child(3) {
+    border: 2px solid #5318dd;
+
+ }
+ .back.alt.reiEspadas {
+
+     
+    position: absolute;
+    opacity: 100%;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: #ffffff;
+    align-items: center;
+    justify-content: space-around;
+    transform: rotateY(180deg);
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    flex-direction: column;
+    box-shadow: 5px 10px 50px #1d1d1d;
+    background-image: url(./assets/reiEspadas.png);
+    background-repeat: no-repeat;
+
+
+
+ }
+ .back.alt.reiOuro {
+    position: absolute;
+    opacity: 100%;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: #ffffff;
+    align-items: center;
+    justify-content: space-around;
+    transform: rotateY(180deg);
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    flex-direction: column;
+    box-shadow: 5px 10px 50px #1d1d1d;
+    background-image: url(./assets/reiOuro.png);
+    background-repeat: no-repeat;
+
+
+
+ }
+ .back.alt.reiCopas {
+    position: absolute;
+    opacity: 100%;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: #ffffff;
+    align-items: center;
+    justify-content: space-around;
+    transform: rotateY(180deg);
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    flex-direction: column;
+    box-shadow: 5px 10px 50px #1d1d1d;
+    background-image: url(./assets/reiCopas.png);
+    background-repeat: no-repeat;
+
+
+
+ }
+ .back.alt.rainhaCopas {
+    position: absolute;
+    opacity: 100%;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: #ffffff;
+    align-items: center;
+    justify-content: space-around;
+    transform: rotateY(180deg);
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    flex-direction: column;
+    box-shadow: 5px 10px 50px #1d1d1d;
+    background-image: url(./assets/rainhaCopas.png);
+    background-repeat: no-repeat;
+
+
+
+ }
+ .back.alt.rainhaPaus {
+    position: absolute;
+    opacity: 100%;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: #ffffff;
+    align-items: center;
+    justify-content: space-around;
+    transform: rotateY(180deg);
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    flex-direction: column;
+    box-shadow: 5px 10px 50px #1d1d1d;
+    background-image: url(./assets/rainhaPaus.png);
+    background-repeat: no-repeat;
+
+
+
+ }
+ .back.alt.rainhaOuro {
+    position: absolute;
+    opacity: 100%;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: #ffffff;
+    align-items: center;
+    justify-content: space-around;
+    transform: rotateY(180deg);
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    flex-direction: column;
+    box-shadow: 5px 10px 50px #1d1d1d;
+    background-image: url(./assets/rainhaOuro.png);
+    background-repeat: no-repeat;
+
+
+
+ }
+ .back.alt.rainhaEspadas {
+    position: absolute;
+    opacity: 100%;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: #ffffff;
+    align-items: center;
+    justify-content: space-around;
+    transform: rotateY(180deg);
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    flex-direction: column;
+    box-shadow: 5px 10px 50px #1d1d1d;
+    background-image: url(./assets/rainhaEspadas.png);
+    background-repeat: no-repeat;
+
+
+
+ }
+
+ .back.alt.valetePaus {
+    position: absolute;
+    opacity: 100%;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: #ffffff;
+    align-items: center;
+    justify-content: space-around;
+    transform: rotateY(180deg);
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    flex-direction: column;
+    box-shadow: 5px 10px 50px #1d1d1d;
+    background-image: url(./assets/valetePaus.png);
+    background-repeat: no-repeat;
+
+
+
+ }
+ .back.alt.valeteOuro {
+    position: absolute;
+    opacity: 100%;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: #ffffff;
+    align-items: center;
+    justify-content: space-around;
+    transform: rotateY(180deg);
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    flex-direction: column;
+    box-shadow: 5px 10px 50px #1d1d1d;
+    background-image: url(./assets/valeteOuro.png);
+    background-repeat: no-repeat;
+
+
+
+ }
+ .back.alt.valeteCopas {
+    position: absolute;
+    opacity: 100%;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: #ffffff;
+    align-items: center;
+    justify-content: space-around;
+    transform: rotateY(180deg);
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    flex-direction: column;
+    box-shadow: 5px 10px 50px #1d1d1d;
+    background-image: url(./assets/valeteCopas.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+
+
+ }
+ .back.alt.valeteEspadas {
+    position: absolute;
+    opacity: 100%;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: #ffffff;
+    align-items: center;
+    justify-content: space-around;
+    transform: rotateY(180deg);
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    flex-direction: column;
+    box-shadow: 5px 10px 50px #1d1d1d;
+    background-image: url(./assets/valeteEspadas.png);
+    background-repeat: no-repeat;
+
+
+
+ }
+ .carta.alt {
+    transform: rotateY(180deg);
+ }
+.carta:hover { 
+    height: 100%;
+    flex: 1.5;
+}

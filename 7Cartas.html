@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&display=swap" rel="stylesheet">
+  <title>Sete e-mail</title>
+</head>
+
+<body id="corpo">
+
+ 
+  <div class="cartas3" id="cartasDeck2"></div>
+  <div class="alinha">
+  <div class="cartas" id="cartasDeck"> <div class="lista"><button id="Button" class="btn" onclick="pedir()">Pedir carta</button>
+    <button id="Button2" class="btn" onclick="passar()">Passar carta</button>
+    <button id="Button3" class="btn" disabled onclick="reiniciar()">Reiniciar</button>
+  
+  </div>
+  </div>
+   
+  
+  </div>
+</div>
+
+  </div>
+  <div class="lista">
+    <p class="textinho">Jogador 1</p>
+ <div id="result"></div> </div>
+ <div class="lista">
+  <p class="textinho2">Banca</p>
+
+ <div id="result2"></div>
+</div>
+
+
+  
+
+  
+  <div class="amostras">
+    <div class="jogador">
+  <div id="carteado">
+    
+
+    <div class="jogador">
+  <div id="carteado2"></div>
+
+    </div>
+
+
+  </div>
+</body>
+
+</html>
+<script>
+ 
+  window.addEventListener('click', function() {
+  let divs = document.querySelectorAll('.carta');
+  console.log(divs)
+
+
+// Adiciona um evento de clique a cada div
+divs.forEach(div => {
+    div.addEventListener('click', function() {
+        // Pega o ID da div clicada
+        const id = this.id;
+        // mostrar(id)
+        console.log('ID da div clicada:', id);
+        mostrar(id)
+    });
+});
+
+
+
+})
+
+  
+   
+
+
+   function mostrar(id) {
+      let cartass = document.getElementById(id);
+      let tras = cartass.querySelector('.back');
+        cartass.classList.toggle("alt");
+        tras.classList.toggle("alt");
+      
+    }
+   function mostrar2(id2) {
+      let cartass2 = document.getElementById(id2);
+      let tras = cartass2.querySelector('.back');
+        cartass2.classList.toggle("alt");
+        tras.classList.toggle("alt");
+      
+    }
+  
+  let ponto = 0
+  let ponto2 = 0
+  let jogador = [{
+    "nome": "jogador 1",
+    "cartas": [], "pontos": []
+  },
+  {
+    "nome": "Banca",
+    "cartas": [], "pontos": []
+  }
+  ]
+  let cartas = [
+    {
+      "sinal": "espadas",
+      "valor": 2
+    },
+    {
+      "sinal": "espadas",
+      "valor": 3
+    },
+    {
+      "sinal": "espadas",
+      "valor": 4
+    },
+    {
+      "sinal": "espadas",
+      "valor": 5
+    },
+    {
+      "sinal": "espadas",
+      "valor": 6
+    },
+    {
+      "sinal": "espadas",
+      "valor": 7
+    },
+    {
+      "sinal": "espadas",
+      "valor": "A"
+    },
+    {
+      "sinal": "espadas",
+      "valor": "valete"
+    },
+    {
+      "sinal": "espadas",
+      "valor": "rainha"
+    },
+    {
+      "sinal": "espadas",
+      "valor": "rei"
+    },
+    {
+      "sinal": "copas",
+      "valor": 2
+    },
+    {
+      "sinal": "copas",
+      "valor": 3
+    },
+    {
+      "sinal": "copas",
+      "valor": 4
+    },
+    {
+      "sinal": "copas",
+      "valor": 5
+    },
+    {
+      "sinal": "copas",
+      "valor": 6
+    },
+    {
+      "sinal": "copas",
+      "valor": 7
+    },
+    {
+      "sinal": "copas",
+      "valor": "A"
+    },
+    {
+      "sinal": "copas",
+      "valor": "valete"
+    },
+    {
+      "sinal": "copas",
+      "valor": "rainha"
+    },
+    {
+      "sinal": "copas",
+      "valor": "rei"
+    },
+    {
+      "sinal": "ouro",
+      "valor": 2
+    },
+    {
+      "sinal": "ouro",
+      "valor": 3
+    },
+    {
+      "sinal": "ouro",
+      "valor": 4
+    },
+    {
+      "sinal": "ouro",
+      "valor": 5
+    },
+    {
+      "sinal": "ouro",
+      "valor": 6
+    },
+    {
+      "sinal": "ouro",
+      "valor": 7
+    },
+    {
+      "sinal": "ouro",
+      "valor": "A"
+    },
+    {
+      "sinal": "ouro",
+      "valor": "valete"
+    },
+    {
+      "sinal": "ouro",
+      "valor": "rainha"
+    },
+    {
+      "sinal": "ouro",
+      "valor": "rei"
+    },
+
+    {
+      "sinal": "paus",
+      "valor": 2
+    },
+    {
+      "sinal": "paus",
+      "valor": 3
+    },
+    {
+      "sinal": "paus",
+      "valor": 4
+    },
+    {
+      "sinal": "paus",
+      "valor": 5
+    },
+    {
+      "sinal": "paus",
+      "valor": 6
+    },
+    {
+      "sinal": "paus",
+      "valor": 7
+    },
+    {
+      "sinal": "paus",
+      "valor": "A"
+    },
+    {
+      "sinal": "paus",
+      "valor": "valete"
+    },
+    {
+      "sinal": "paus",
+      "valor": "rainha"
+    },
+    {
+      "sinal": "paus",
+      "valor": "rei"
+    },
+
+  ]
+  let index = 0
+  let index2 = 0
+  let soma = 0
+  let soma2 = 0
+  var fundo = document.querySelector('.cartas')
+  var fundo2 = document.querySelector('.cartas3')
+
+  if(jogador[0].cartas.length == 0) {
+    fundo.style.width = "200px"
+   }
+  if(jogador[1].cartas.length == 0) {
+    fundo2.style.width = "200px"
+   }
+
+
+  console.log(cartas)
+  function pedir() {
+    
+
+    if(jogador[0].cartas.length == 0) {
+
+fundo.style.width = "400px"
+}
+    
+
+    if(jogador[0].cartas.length == 1) {
+
+fundo.style.width = "520px"
+}
+    if(jogador[0].cartas.length == 2) {
+
+fundo.style.width = "720px"
+}
+    if(jogador[0].cartas.length == 3) {
+
+fundo.style.width = "850px"
+}
+    if(jogador[0].cartas.length == 4) {
+
+fundo.style.width = "1000px"
+}
+    let aleatorio = (Math.random() * 40).toFixed(0)
+    jogador[0].cartas.push(cartas[aleatorio])
+    console.log(jogador[0])
+    let element = jogador[0].cartas[index].valor;
+    let element2 = jogador[0].cartas[index].sinal;
+    if(element == 'rainha' || element == 'rei' || element == 'valete'){
+    jogador[0].pontos.push(0.5)
+    soma += 0.5
+    if(element == 'rei') {
+      if(jogador[0].cartas[index].sinal == 'paus') {
+      cartasDeck.innerHTML += `  <div class="carta" id="cart${index}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back reiPaus"> </div>`
+
+
+      }
+      else if(jogador[0].cartas[index].sinal == 'ouro') {
+      cartasDeck.innerHTML += `  <div class="carta" id="cart${index}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back reiOuro"> </div>`
+
+
+      }
+      else if(jogador[0].cartas[index].sinal == 'espadas') {
+      cartasDeck.innerHTML += `  <div class="carta" id="cart${index}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back reiEspadas"> </div>`
+
+
+      }
+      else if(jogador[0].cartas[index].sinal == 'copas') {
+      cartasDeck.innerHTML += `  <div class="carta" id="cart${index}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back reiCopas"> </div>`
+
+
+      }
+    }
+    if(element == 'rainha') {
+      if(jogador[0].cartas[index].sinal == 'paus') {
+      cartasDeck.innerHTML += `  <div class="carta" id="cart${index}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back rainhaPaus"> </div>`
+
+
+      }
+      else if(jogador[0].cartas[index].sinal == 'ouro') {
+      cartasDeck.innerHTML += `  <div class="carta" id="cart${index}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back rainhaOuro"> </div>`
+
+
+      }
+      else if(jogador[0].cartas[index].sinal == 'espadas') {
+      cartasDeck.innerHTML += `  <div class="carta" id="cart${index}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back rainhaEspadas"> </div>`
+
+
+      }
+      else if(jogador[0].cartas[index].sinal == 'copas') {
+      cartasDeck.innerHTML += `  <div class="carta" id="cart${index}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back rainhaCopas"> </div>`
+
+
+      }
+    }
+    if(element == 'valete') {
+      if(jogador[0].cartas[index].sinal == 'paus') {
+      cartasDeck.innerHTML += `  <div class="carta" id="cart${index}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back valetePaus"> </div>`
+
+
+      }
+      else if(jogador[0].cartas[index].sinal == 'ouro') {
+      cartasDeck.innerHTML += `  <div class="carta" id="cart${index}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back valeteOuro"> </div>`
+
+
+      }
+      else if(jogador[0].cartas[index].sinal == 'espadas') {
+      cartasDeck.innerHTML += `  <div class="carta" id="cart${index}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back valeteEspadas"> </div>`
+
+
+      }
+      else if(jogador[0].cartas[index].sinal == 'copas') {
+      cartasDeck.innerHTML += `  <div class="carta" id="cart${index}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back valeteCopas"> </div>`
+
+
+      }
+    }
+
+    } else if(element == 'A') {
+    jogador[0].pontos.push(1)
+    soma += 1
+    if(jogador[0].cartas[index].sinal == "copas"){
+      cartasDeck.innerHTML += `  <div class="carta" id="cart${index}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back"> <div class="valorTop"><div class = "align">${jogador[0].cartas[index].valor} <img class = "naipe" src="./assets/coracao.png" alt=""></div></div> <div class="sinal"><img src="./assets/coracao.png" alt=""> </div> <div class="valorEnd"><div class = "align">${jogador[0].cartas[index].valor} <img class = "naipe" src="./assets/coracao.png" alt=""></div></div></div>`
+      
+    }
+    if(jogador[0].cartas[index].sinal == "paus"){
+      cartasDeck.innerHTML += `  <div class="carta" id="cart${index}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back"> <div class="valorTop"><div style = "color: black " class = "align" class = "align">${jogador[0].cartas[index].valor} <img class = "naipe" src="./assets/arvore.png" alt=""></div></div> <div class="sinal"><img src="./assets/arvore.png" alt=""> </div> <div class="valorEnd"><div style = "color: black " class = "align" class = "align">${jogador[0].cartas[index].valor} <img class = "naipe" src="./assets/arvore.png" alt=""></div></div></div>`
+}
+   else if(jogador[0].cartas[index].sinal == "espadas"){
+      cartasDeck.innerHTML += `  <div class="carta" id="cart${index}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back"> <div class="valorTop"><div style = "color: black " class = "align">${jogador[0].cartas[index].valor} <img class = "naipe" src="./assets/espadas.png" alt=""></div></div> <div class="sinal"><img src="./assets/espadas.png" alt=""> </div> <div class="valorEnd"><div style = "color: black " class = "align" class = "align">${jogador[0].cartas[index].valor} <img class = "naipe" src="./assets/espadas.png" alt=""></div></div></div>`
+}
+    else if(jogador[0].cartas[index].sinal == "ouro"){
+      cartasDeck.innerHTML += `  <div class="carta" id="cart${index}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back"> <div class="valorTop"><div class = "align">${jogador[0].cartas[index].valor} <img class = "naipe" src="./assets/diamante.png" alt=""></div></div> <div class="sinal"><img src="./assets/diamante.png" alt=""> </div> <div class="valorEnd"><div class = "align">${jogador[0].cartas[index].valor} <img class = "naipe" src="./assets/diamante.png" alt=""></div></div></div>`
+      
+    }
+ 
+
+
+    } else {
+    jogador[0].pontos.push(jogador[0].cartas[index].valor)
+    soma += jogador[0].cartas[index].valor
+   
+    if(jogador[0].cartas[index].sinal == "paus"){
+      cartasDeck.innerHTML += `  <div class="carta" id="cart${index}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back"> <div class="valorTop"><div style = "color: black " class = "align" class = "align">${jogador[0].cartas[index].valor} <img class = "naipe" src="./assets/arvore.png" alt=""></div></div> <div class="sinal"><img src="./assets/arvore.png" alt=""> </div> <div class="valorEnd"><div style = "color: black " class = "align" class = "align">${jogador[0].cartas[index].valor} <img class = "naipe" src="./assets/arvore.png" alt=""></div></div></div>`
+}
+   else if(jogador[0].cartas[index].sinal == "espadas"){
+      cartasDeck.innerHTML += `  <div class="carta" id="cart${index}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back"> <div class="valorTop"><div style = "color: black " class = "align">${jogador[0].cartas[index].valor} <img class = "naipe" src="./assets/espadas.png" alt=""></div></div> <div class="sinal"><img src="./assets/espadas.png" alt=""> </div> <div class="valorEnd"><div style = "color: black " class = "align" class = "align">${jogador[0].cartas[index].valor} <img class = "naipe" src="./assets/espadas.png" alt=""></div></div></div>`
+}
+  else  if(jogador[0].cartas[index].sinal == "ouro"){
+      cartasDeck.innerHTML += `  <div class="carta" id="cart${index}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back"> <div class="valorTop"><div class = "align">${jogador[0].cartas[index].valor} <img class = "naipe" src="./assets/diamante.png" alt=""></div></div> <div class="sinal"><img src="./assets/diamante.png" alt=""> </div> <div class="valorEnd"><div class = "align">${jogador[0].cartas[index].valor} <img class = "naipe" src="./assets/diamante.png" alt=""></div></div></div>`
+}
+   else if(jogador[0].cartas[index].sinal == "copas"){
+      cartasDeck.innerHTML += `  <div class="carta" id="cart${index}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back"> <div class="valorTop"><div class = "align">${jogador[0].cartas[index].valor} <img class = "naipe" src="./assets/coracao.png" alt=""></div></div> <div class="sinal"><img src="./assets/coracao.png" alt=""> </div> <div class="valorEnd"><div class = "align">${jogador[0].cartas[index].valor} <img class = "naipe" src="./assets/coracao.png" alt=""></div></div></div>`
+}
+
+   
+
+    }
+    if(soma < soma2) {
+      document.getElementById("Button2").disabled = true;
+      document.getElementById("Button").disabled = false;
+      document.getElementById("Button2").innerHTML = "Sua vez";
+      document.getElementById("Button2").style.opacity = "50%";
+      document.getElementById("Button2").style.border = "2px solid #ee730e";
+      
+      document.getElementById("Button2").style.backgroundColor = " #1d1d1d00;"
+      document.getElementById("Button").style.backgroundColor = " #c40404";
+
+
+    } else {
+      document.getElementById("Button").disabled = true;
+      document.getElementById("Button2").disabled = false;
+      document.getElementById("Button").innerHTML = "Sua vez";
+      document.getElementById("Button2").innerHTML = "pedir carta";
+      document.getElementById("Button").style.opacity = "50%"; 
+      document.getElementById("Button2").style.opacity = "100%"; 
+      document.getElementById("Button").style.border = "2px solid #c40404 ";
+      document.getElementById("Button").style.backgroundColor = " #1d1d1d00;"
+      document.getElementById("Button2").style.backgroundColor = " #ee730e";
+
+
+    }
+    if(soma2 == 7.5) {
+      corpo.innerHTML += `<div id = "msg" >${jogador[1].nome} Ganhou</div>`
+      document.getElementById("Button").disabled = true;
+      document.getElementById("Button2").disabled = true;
+      document.getElementById("Button2").innerHTML = "ACABOU";
+      document.getElementById("Button").innerHTML = "ACABOU";
+      document.getElementById("Button2").style.opacity = "50%";
+      document.getElementById("Button").style.opacity = "50%";
+      document.getElementById("Button").style.border = "2px solid #c40404";
+      document.getElementById("Button2").style.border = "2px solid #ee730e";
+      document.getElementById("Button3").style.backgroundColor = "#5318dd";
+      
+      document.getElementById("Button2").style.backgroundColor = " #1d1d1d00;"
+    } else if(soma2 > 7.5){
+      corpo.innerHTML += `<div id = "msg" >${jogador[0].nome} ganhou</div>`
+      document.getElementById("Button").disabled = true;
+      document.getElementById("Button2").disabled = true;
+      document.getElementById("Button2").innerHTML = "ACABOU";
+      document.getElementById("Button").innerHTML = "ACABOU";
+      document.getElementById("Button2").style.opacity = "50%";
+      document.getElementById("Button").style.opacity = "50%";
+      document.getElementById("Button").style.border = "2px solid #c40404";
+      document.getElementById("Button2").style.border = "2px solid #ee730e";
+      document.getElementById("Button3").style.backgroundColor = "#5318dd";
+      document.getElementById("Button3").disabled = false;
+    }
+    if(soma == 7.5) {
+      corpo.innerHTML += `<div id = "msg" >${jogador[0].nome} Ganhou</div>`
+      document.getElementById("Button").disabled = true;
+      document.getElementById("Button2").disabled = true;
+      document.getElementById("Button2").innerHTML = "ACABOU";
+      document.getElementById("Button").innerHTML = "ACABOU";
+      document.getElementById("Button2").style.opacity = "50%";
+      document.getElementById("Button").style.opacity = "50%";
+      document.getElementById("Button").style.border = "2px solid #c40404";
+      document.getElementById("Button2").style.border = "2px solid #ee730e";
+      document.getElementById("Button3").style.backgroundColor = "#5318dd";
+      document.getElementById("Button3").disabled = false;
+
+    } else if(soma > 7.5){
+      corpo.innerHTML += `<div id = "msg" >${jogador[1].nome} Ganhou</div>`
+     
+      document.getElementById("Button").disabled = true;
+      document.getElementById("Button2").disabled = true;
+      document.getElementById("Button2").innerHTML = "ACABOU";
+      document.getElementById("Button").innerHTML = "ACABOU";
+      document.getElementById("Button2").style.opacity = "50%";
+      document.getElementById("Button").style.opacity = "50%";
+      document.getElementById("Button").style.border = "2px solid #c40404";
+      document.getElementById("Button2").style.border = "2px solid #ee730e";
+      document.getElementById("Button3").style.backgroundColor = "#5318dd";
+      document.getElementById("Button3").disabled = false;
+
+    }
+   result.innerHTML = ` <b class = "total">${soma}</b>`
+    index++
+//     let divs = document.querySelectorAll('.carta');
+//   console.log(divs)
+
+
+// // Adiciona um evento de clique a cada div
+// divs.forEach(div => {
+//     div.addEventListener('click', function() {
+//         // Pega o ID da div clicada
+//         const id = this.id;
+//         // mostrar(id)
+//         console.log('ID da div clicada:', id);
+//         mostrar(id)
+//     });
+// });
+
+
+
+
+  }
+  function passar() {
+    if(jogador[1].cartas.length == 0) {
+
+fundo2.style.width = "200px"
+}
+    
+
+    if(jogador[1].cartas.length == 1) {
+
+fundo2.style.width = "350px"
+}
+    if(jogador[1].cartas.length == 2) {
+
+fundo2.style.width = "500px"
+}
+    if(jogador[1].cartas.length == 3) {
+
+fundo2.style.width = "600px"
+}
+    if(jogador[1].cartas.length == 4) {
+
+fundo2.style.width = "800px"
+}
+let aleatorio = (Math.random() * cartas.length).toFixed(0)
+    jogador[1].cartas.push(cartas[aleatorio])
+    console.log(jogador[1])
+    let element = jogador[1].cartas[index2].valor;
+    let element2 = jogador[1].cartas[index2].sinal;
+    if(element == 'rainha' || element == 'rei' || element == 'valete'){
+    jogador[1].pontos.push(0.5)
+    soma2 += 0.5
+    if(element == 'rei') {
+      if(jogador[1].cartas[index2].sinal == 'paus') {
+      cartasDeck2.innerHTML += `  <div class="carta" id="carte${index2}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back reiPaus"> </div>`
+
+
+      }
+      else if(jogador[1].cartas[index2].sinal == 'ouro') {
+      cartasDeck2.innerHTML += `  <div class="carta" id="carte${index2}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back reiOuro"> </div>`
+
+
+      }
+      else if(jogador[1].cartas[index2].sinal == 'espadas') {
+      cartasDeck2.innerHTML += `  <div class="carta" id="carte${index2}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back reiEspadas"> </div>`
+
+
+      }
+      else if(jogador[1].cartas[index2].sinal == 'copas') {
+      cartasDeck2.innerHTML += `  <div class="carta" id="carte${index2}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back reiCopas"> </div>`
+
+
+      }
+    }
+    if(element == 'rainha') {
+      if(jogador[1].cartas[index2].sinal == 'paus') {
+      cartasDeck2.innerHTML += `  <div class="carta" id="carte${index2}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back rainhaPaus"> </div>`
+
+
+      }
+      else if(jogador[1].cartas[index2].sinal == 'ouro') {
+      cartasDeck2.innerHTML += `  <div class="carta" id="carte${index2}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back rainhaOuro"> </div>`
+
+
+      }
+      else if(jogador[1].cartas[index2].sinal == 'espadas') {
+      cartasDeck2.innerHTML += `  <div class="carta" id="carte${index2}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back rainhaEspadas"> </div>`
+
+
+      }
+      else if(jogador[1].cartas[index2].sinal == 'copas') {
+      cartasDeck2.innerHTML += `  <div class="carta" id="carte${index2}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back rainhaCopas"> </div>`
+
+
+      }
+    }
+    if(element == 'valete') {
+      if(jogador[1].cartas[index2].sinal == 'paus') {
+      cartasDeck2.innerHTML += `  <div class="carta" id="carte${index2}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back valetePaus"> </div>`
+
+
+      }
+      else if(jogador[1].cartas[index2].sinal == 'ouro') {
+      cartasDeck2.innerHTML += `  <div class="carta" id="carte${index2}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back valeteOuro"> </div>`
+
+
+      }
+      else if(jogador[1].cartas[index2].sinal == 'espadas') {
+      cartasDeck2.innerHTML += `  <div class="carta" id="carte${index2}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back valeteEspadas"> </div>`
+
+
+      }
+      else if(jogador[1].cartas[index2].sinal == 'copas') {
+      cartasDeck2.innerHTML += `  <div class="carta" id="carte${index2}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back valeteCopas"> </div>`
+
+
+      }
+    }
+
+    } else if(element == 'A') {
+    jogador[1].pontos.push(1)
+    soma2 += 1
+    if(jogador[1].cartas[index2].sinal == "copas"){
+      cartasDeck2.innerHTML += `  <div class="carta" id="carte${index2}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back"> <div class="valorTop"><div class = "align">${jogador[1].cartas[index2].valor} <img class = "naipe" src="./assets/coracao.png" alt=""></div></div> <div class="sinal"><img src="./assets/coracao.png" alt=""> </div> <div class="valorEnd"><div class = "align">${jogador[1].cartas[index2].valor} <img class = "naipe" src="./assets/coracao.png" alt=""></div></div></div>`
+      
+    }
+    if(jogador[1].cartas[index2].sinal == "paus"){
+      cartasDeck2.innerHTML += `  <div class="carta" id="carte${index2}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back"> <div class="valorTop"><div style = "color: black " class = "align" class = "align">${jogador[1].cartas[index2].valor} <img class = "naipe" src="./assets/arvore.png" alt=""></div></div> <div class="sinal"><img src="./assets/arvore.png" alt=""> </div> <div class="valorEnd"><div style = "color: black " class = "align" class = "align">${jogador[1].cartas[index2].valor} <img class = "naipe" src="./assets/arvore.png" alt=""></div></div></div>`
+}
+   else if(jogador[1].cartas[index2].sinal == "espadas"){
+      cartasDeck2.innerHTML += `  <div class="carta" id="carte${index2}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back"> <div class="valorTop"><div style = "color: black " class = "align">${jogador[1].cartas[index2].valor} <img class = "naipe" src="./assets/espadas.png" alt=""></div></div> <div class="sinal"><img src="./assets/espadas.png" alt=""> </div> <div class="valorEnd"><div style = "color: black " class = "align" class = "align">${jogador[1].cartas[index2].valor} <img class = "naipe" src="./assets/espadas.png" alt=""></div></div></div>`
+}
+    else if(jogador[1].cartas[index2].sinal == "ouro"){
+      cartasDeck2.innerHTML += `  <div class="carta" id="carte${index2}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back"> <div class="valorTop"><div class = "align">${jogador[1].cartas[index2].valor} <img class = "naipe" src="./assets/diamante.png" alt=""></div></div> <div class="sinal"><img src="./assets/diamante.png" alt=""> </div> <div class="valorEnd"><div class = "align">${jogador[1].cartas[index2].valor} <img class = "naipe" src="./assets/diamante.png" alt=""></div></div></div>`
+      
+    }
+ 
+
+
+    } else {
+    jogador[1].pontos.push(jogador[1].cartas[index2].valor)
+    soma2 += jogador[1].cartas[index2].valor
+   
+    if(jogador[1].cartas[index2].sinal == "paus"){
+      cartasDeck2.innerHTML += `  <div class="carta" id="carte${index2}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back"> <div class="valorTop"><div style = "color: black " class = "align" class = "align">${jogador[1].cartas[index2].valor} <img class = "naipe" src="./assets/arvore.png" alt=""></div></div> <div class="sinal"><img src="./assets/arvore.png" alt=""> </div> <div class="valorEnd"><div style = "color: black " class = "align" class = "align">${jogador[1].cartas[index2].valor} <img class = "naipe" src="./assets/arvore.png" alt=""></div></div></div>`
+}
+   else if(jogador[1].cartas[index2].sinal == "espadas"){
+      cartasDeck2.innerHTML += `  <div class="carta" id="carte${index2}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back"> <div class="valorTop"><div style = "color: black " class = "align">${jogador[1].cartas[index2].valor} <img class = "naipe" src="./assets/espadas.png" alt=""></div></div> <div class="sinal"><img src="./assets/espadas.png" alt=""> </div> <div class="valorEnd"><div style = "color: black " class = "align" class = "align">${jogador[1].cartas[index2].valor} <img class = "naipe" src="./assets/espadas.png" alt=""></div></div></div>`
+}
+  else  if(jogador[1].cartas[index2].sinal == "ouro"){
+      cartasDeck2.innerHTML += `  <div class="carta" id="carte${index2}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back"> <div class="valorTop"><div class = "align">${jogador[1].cartas[index2].valor} <img class = "naipe" src="./assets/diamante.png" alt=""></div></div> <div class="sinal"><img src="./assets/diamante.png" alt=""> </div> <div class="valorEnd"><div class = "align">${jogador[1].cartas[index2].valor} <img class = "naipe" src="./assets/diamante.png" alt=""></div></div></div>`
+}
+   else if(jogador[1].cartas[index2].sinal == "copas"){
+      cartasDeck2.innerHTML += `  <div class="carta" id="carte${index2}" onclick="mostrar()">
+      <div class="front" ></div>
+      <div class="back"> <div class="valorTop"><div class = "align">${jogador[1].cartas[index2].valor} <img class = "naipe" src="./assets/coracao.png" alt=""></div></div> <div class="sinal"><img src="./assets/coracao.png" alt=""> </div> <div class="valorEnd"><div class = "align">${jogador[1].cartas[index2].valor} <img class = "naipe" src="./assets/coracao.png" alt=""></div></div></div>`
+}
+
+   
+
+    }
+    if(soma2 < soma) {
+      document.getElementById("Button").disabled = true;
+      document.getElementById("Button2").disabled = false;
+      document.getElementById("Button").innerHTML = "Sua vez";
+      document.getElementById("Button").style.opacity = "50%";
+      document.getElementById("Button").style.border = "2px solid #c40404";
+      
+      document.getElementById("Button").style.backgroundColor = " #1d1d1d00;"
+      document.getElementById("Button2").style.backgroundColor = " #ee730e";
+
+
+    } else {
+      document.getElementById("Button2").disabled = true;
+      document.getElementById("Button").disabled = false;
+      document.getElementById("Button2").innerHTML = "Sua vez";
+      document.getElementById("Button").innerHTML = "pedir carta";
+      document.getElementById("Button2").style.opacity = "50%"; 
+      document.getElementById("Button").style.opacity = "100%"; 
+      document.getElementById("Button2").style.border = "2px solid #ee730e ";
+      document.getElementById("Button2").style.backgroundColor = " #1d1d1d00;"
+      document.getElementById("Button").style.backgroundColor = " #c40404";
+
+
+    }
+    if(soma2 == 7.5) {
+      corpo.innerHTML += `<div id = "msg" >${jogador[1].nome} Ganhou</div>`
+      
+      document.getElementById("Button").disabled = true;
+      document.getElementById("Button2").disabled = true;
+      document.getElementById("Button2").innerHTML = "ACABOU";
+      document.getElementById("Button").innerHTML = "ACABOU";
+      document.getElementById("Button2").style.opacity = "50%";
+      document.getElementById("Button").style.opacity = "50%";
+      document.getElementById("Button").style.border = "2px solid #c40404";
+      document.getElementById("Button2").style.border = "2px solid #ee730e";
+      document.getElementById("Button3").style.backgroundColor = "#5318dd";
+      document.getElementById("Button3").disabled = false;
+
+    } else if(soma2 > 7.5){
+      corpo.innerHTML += `<div id = "msg" >${jogador[0].nome} Ganhou</div>`
+      document.getElementById("Button").disabled = true;
+      document.getElementById("Button2").disabled = true;
+      document.getElementById("Button2").innerHTML = "ACABOU";
+      document.getElementById("Button").innerHTML = "ACABOU";
+      document.getElementById("Button2").style.opacity = "50%";
+      document.getElementById("Button").style.opacity = "50%";
+      document.getElementById("Button").style.border = "2px solid #c40404";
+      document.getElementById("Button2").style.border = "2px solid #ee730e";
+      document.getElementById("Button3").style.backgroundColor = "#5318dd";
+      document.getElementById("Button3").disabled = false;
+
+    }
+   result2.innerHTML = ` <b class = "total">${soma2}</b>`
+    index2++
+ 
+
+
+
+
+
+    
+
+
+  }
+  function reiniciar(){
+   window.location.reload()
+  }
+  
+  
+     
+ 
+</script>
